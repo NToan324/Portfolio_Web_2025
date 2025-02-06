@@ -4,11 +4,15 @@ import { faAward } from "@fortawesome/free-solid-svg-icons";
 import { faBoxesStacked } from "@fortawesome/free-solid-svg-icons";
 import Button from "@mui/material/Button";
 import { useState } from "react";
+import Projects from "./projects";
+import Certificates from "./certificates";
+import TechStack from "./techStack";
+
 const PortfolioShowCase = () => {
   const content = [
     {
       icon: faCode,
-      title: "Project",
+      title: "Projects",
     },
     {
       icon: faAward,
@@ -16,15 +20,18 @@ const PortfolioShowCase = () => {
     },
     {
       icon: faBoxesStacked,
-      title: "Tech Stacks",
+      title: "Tech Stack",
     },
   ];
+
   const [seleted, setSelected] = useState(content[0].title);
 
   return (
     <div className="mt-32 px-[100px]">
       <div className="flex flex-col justify-center items-center gap-5">
-        <h1 className="text-6xl font-bold gradient-text">Portfolio Showcase</h1>
+        <h1 className="text-6xl font-bold gradient-text text-center">
+          Portfolio Showcase
+        </h1>
         <div className="flex justify-center items-center gap-2">
           <p className="text-gray-400 text-base max-w-2xl text-center">
             Explore my journey through projects, certifications, and technical
@@ -37,19 +44,19 @@ const PortfolioShowCase = () => {
         <div className="absolute background-gradient w-full h-full opacity-10"></div>
         {content.map((item, index) => (
           <Button
-            className="group relative overflow-hidden !p-4 !rounded-xl"
+            className="group relative overflow-hidden !p-2 !rounded-xl !normal-case"
             key={index}
             onClick={() => setSelected(item.title)}
           >
             <div className="relative flex flex-col justify-between items-center gap-2 p-2 z-10">
               <FontAwesomeIcon
                 icon={item.icon}
-                className={`group-hover:rotate-6 group-hover:text-white transition-all duration-300 ease-in-out ${
+                className={`group-hover:rotate-6 text-xl group-hover:text-white transition-all duration-300 ease-in-out ${
                   seleted === item.title ? "text-purple" : "text-gray-400"
                 }`}
               />
               <span
-                className={`font-bold group-hover:text-white ${
+                className={`font-bold group-hover:text-white text-base ${
                   seleted == item.title ? "text-white" : "text-gray-400"
                 }`}
               >
@@ -64,6 +71,9 @@ const PortfolioShowCase = () => {
           </Button>
         ))}
       </div>
+      {seleted === "Projects" && <Projects />}
+      {seleted === "Certificates" && <Certificates />}
+      {seleted === "Tech Stack" && <TechStack />}
     </div>
   );
 };
