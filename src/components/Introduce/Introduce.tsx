@@ -7,7 +7,7 @@ import GithubIcon from "../../assets/github.svg";
 import UserIcon from "../../assets/user.svg";
 import EarthIcon from "../../assets/earth.svg";
 
-const Introduction = () => {
+const Introduce = () => {
   useEffect(() => {
     const titleSplit = new SplitType(".title_split");
     const portfoTextSplit = new SplitType(".portfo_text", { types: "words" });
@@ -145,4 +145,4 @@ const Introduction = () => {
   );
 };
 
-export default Introduction;
+export default Introduce;

@@ -1,41 +1,71 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-scroll";
+import { IoMenu } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
+
 const Header = () => {
   const [isSelected, setIsSelected] = useState("Home");
 
   const navLink = [
     {
       name: "Home",
-      path: "/home",
+      path: "home",
     },
     {
       name: "About",
-      path: "/about",
+      path: "about",
     },
     {
       name: "Portfolio",
-      path: "/portfolio",
+      path: "portfolio",
     },
     {
       name: "Contact",
-      path: "/contact",
+      path: "contact",
     },
   ];
+
+  // const [scroll, setScroll] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
+  // ${scroll ? "bg-[#130a26]/40 backdrop-blur-xl" : "bg-[#130a26]"}
   return (
-    <header className="container_home text-white w-full px-[10%] fixed top-0 z-50 hidden">
+    <header
+      className={`md:bg-[#130a26] text-white w-full px-8 md:px-[100px] fixed top-0 z-50 custom-transition-all ${
+        openMenu ? "bg-black" : "bg-[#130a26]"
+      } `}
+    >
       <nav className="flex justify-between items-center h-16">
         <div className="gradient-text font-bold text-xl">
-          <Link to="/home">Nhật Toàn</Link>
+          <Link to="about">Nhật Toàn</Link>
         </div>
-        <div className="flex items-center space-x-8">
+        <div
+          className={`md:hidden cursor-pointer transition-all duration-300 ease-in-out z-20 ${
+            openMenu ? "rotate-180" : ""
+          }`}
+          onClick={() => setOpenMenu(!openMenu)}
+        >
+          {openMenu ? <IoClose size={30} /> : <IoMenu size={30} />}
+        </div>
+        <div
+          className={`absolute z-10 flex flex-col justify-between items-start p-8 w-full h-[300px] left-0 bg-black transition-all duration-200 ease-in-out md:relative md:items-center md:flex md:w-auto md:h-auto md:bg-transparent md:space-x-8 md:top-0 md:py-0 md:px-0 md:space-y-0 md:flex-row
+            ${openMenu ? "top-16" : "-top-96"}
+            `}
+        >
+          {/* <div className="items-center space-x-8 md:flex hidden"> */}
           {navLink.map((item, index) => (
             <Link
+              smooth={true}
+              duration={1000}
               key={index}
-              to="/home"
-              className={`underline_hover font-semibold ${
+              offset={-70}
+              to={item.path}
+              className={`relative underline_hover font-semibold ${
                 isSelected === item.name ? "gradient-text-nav active" : ""
               }`}
-              onClick={() => setIsSelected(item.name)}
+              onClick={() => {
+                setIsSelected(item.name);
+                setOpenMenu(false);
+              }}
             >
               {item.name}
             </Link>

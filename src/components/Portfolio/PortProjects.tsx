@@ -59,10 +59,10 @@ const Projects = () => {
 
   return (
     <div className="">
-      <div className="mt-10 grid grid-cols-2 gap-5">
+      <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
         {project.slice(0, visibleCount).map((item, index) => (
           <div
-            className="group border border-gray-700 rounded-2xl p-4 flex flex-col justify-between items-start gap-5 bg-[#554e6b35] hover:border-purple-800 transition-all duration-300 ease-in-out hover:shadow-purple"
+            className="group border border-gray-700 rounded-2xl p-4 flex flex-col justify-between items-start gap-5 bg-[#554e6b35] hover:border-purple-800 custom-transition-all hover:shadow-purple"
             key={index}
           >
             <div className="rounded-2xl overflow-hidden">
@@ -99,7 +99,7 @@ const Projects = () => {
       </div>
       {project.length > 4 && (
         <button
-          className="group mt-10 overflow-hidden relative w-[140px] py-2 px-4 rounded-xl space-x-4 border-[#ffffff1a] border hover:border-[#ffffff47] transition-all duration-300 ease-in-out"
+          className="group mt-10 overflow-hidden relative w-[140px] py-2 px-4 rounded-xl space-x-4 border-[#ffffff1a] border hover:border-[#ffffff47] custom-transition-all"
           onClick={() => handleVisibleCount()}
         >
           <span className="text-white">
@@ -107,11 +107,11 @@ const Projects = () => {
           </span>
           <FontAwesomeIcon
             icon={faChevronDown}
-            className={`text-white group-hover:translate-y-1 transition-all duration-300 ease-in-out ${
+            className={`text-white group-hover:translate-y-1 custom-transition-all ${
               seeMore ? "rotate-180" : ""
             }`}
           />
-          <div className="absolute w-full bottom-0 -left-4 h-[2px] bg-[#5a189a] transition-all duration-300 ease-in-out -translate-x-full group-hover:translate-x-0"></div>
+          <div className="absolute w-full bottom-0 -left-4 h-[2px] bg-[#5a189a] custom-transition-all -translate-x-full group-hover:translate-x-0"></div>
         </button>
       )}
     </div>

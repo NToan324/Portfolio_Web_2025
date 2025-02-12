@@ -4,9 +4,7 @@ import { faAward } from "@fortawesome/free-solid-svg-icons";
 import { faBoxesStacked } from "@fortawesome/free-solid-svg-icons";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import Projects from "./projects";
-import Certificates from "./certificates";
-import TechStack from "./techStack";
+import { PortProjects, PortCertificates, PortTechStack } from "./index";
 
 const PortfolioShowCase = () => {
   const content = [
@@ -27,9 +25,9 @@ const PortfolioShowCase = () => {
   const [seleted, setSelected] = useState(content[0].title);
 
   return (
-    <div className="mt-32 px-[100px]">
-      <div className="flex flex-col justify-center items-center gap-5">
-        <h1 className="text-6xl font-bold gradient-text text-center">
+    <div className="mt-14 md:mt-32 px-8 md:px-[100px]" id="portfolio">
+      <div className="flex flex-col justify-center items-center">
+        <h1 className="text-titleText font-bold gradient-text text-center">
           Portfolio Showcase
         </h1>
         <div className="flex justify-center items-center gap-2">
@@ -51,7 +49,7 @@ const PortfolioShowCase = () => {
             <div className="relative flex flex-col justify-between items-center gap-2 p-2 z-10">
               <FontAwesomeIcon
                 icon={item.icon}
-                className={`group-hover:rotate-6 text-xl group-hover:text-white transition-all duration-300 ease-in-out ${
+                className={`group-hover:rotate-6 text-xl group-hover:text-white custom-transition-all ${
                   seleted === item.title ? "text-purple" : "text-gray-400"
                 }`}
               />
@@ -71,9 +69,9 @@ const PortfolioShowCase = () => {
           </Button>
         ))}
       </div>
-      {seleted === "Projects" && <Projects />}
-      {seleted === "Certificates" && <Certificates />}
-      {seleted === "Tech Stack" && <TechStack />}
+      {seleted === "Projects" && <PortProjects />}
+      {seleted === "Certificates" && <PortCertificates />}
+      {seleted === "Tech Stack" && <PortTechStack />}
     </div>
   );
 };

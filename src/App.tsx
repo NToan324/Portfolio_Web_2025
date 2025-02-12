@@ -1,11 +1,11 @@
-import HomePage from "./Screen/Home/HomePage";
+import LandingPage from "./Screen/LandingPage/landingPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<LandingPage />} />
       </Routes>
     </Router>
   );

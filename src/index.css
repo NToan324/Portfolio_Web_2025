@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scrollbar-color: #715c9f #130a26;
+}
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .button-custom {
   border-radius: 10px;
   padding: 12px 24px;
@@ -151,6 +162,10 @@
 .slider-button:hover::before {
   width: 100%;
   transition: 0.5s ease-out;
+}
+
+.custom-transition-all {
+  transition: all 0.5s ease-in-out;
 }
 
 @keyframes typing {

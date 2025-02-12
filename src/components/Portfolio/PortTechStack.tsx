@@ -101,7 +101,7 @@ const TechStack = () => {
       <div className="mt-10 grid grid-cols-2 gap-5 justify-items-center content-center lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3">
         {techStack.slice(0, visibleCount).map((item, index) => (
           <div
-            className="relative overflow-hidden group rounded-2xl w-[140px] h-[140px] bg-[#1e293b80] flex flex-col justify-center items-center gap-2 p-4 hover:bg-[#3e485a75] hover:scale-105 transition-all duration-500 ease-in-out"
+            className="relative overflow-hidden group rounded-2xl w-[140px] h-[140px] bg-[#1e293b80] flex flex-col justify-center items-center gap-2 p-4 hover:bg-[#3e485a75] hover:scale-105 custom-transition-all duration-500 ease-in-out"
             key={index}
           >
             <img
@@ -109,16 +109,16 @@ const TechStack = () => {
               alt={item.title}
               className="w-[70px] relative z-10"
             />
-            <span className="text-gray-400 group-hover:text-white transition-all duration-500 ease-in-out">
+            <span className="text-gray-400 group-hover:text-white custom-transition-all duration-500 ease-in-out">
               {item.title}
             </span>
-            <div className="z-0 absolute w-[80px] h-[80px] blur-xl bg-gradient-to-r from-[#9124ff] to-[#02c4ff] opacity-0 rounded-full group-hover:opacity-70 transition-all duration-500 ease-in-out"></div>
+            <div className="z-0 absolute w-[80px] h-[80px] blur-xl bg-gradient-to-r from-[#9124ff] to-[#02c4ff] opacity-0 rounded-full group-hover:opacity-70 custom-transition-all duration-500 ease-in-out"></div>
           </div>
         ))}
       </div>
       {techStack.length > 12 && (
         <button
-          className="group mt-10 overflow-hidden relative w-[140px] py-2 px-4 rounded-xl space-x-4 border-[#ffffff1a] border hover:border-[#ffffff47] transition-all duration-300 ease-in-out"
+          className="group mt-10 overflow-hidden relative w-[140px] py-2 px-4 rounded-xl space-x-4 border-[#ffffff1a] border hover:border-[#ffffff47] custom-transition-all"
           onClick={() => handleVisibleCount()}
         >
           <span className="text-white">
@@ -126,11 +126,11 @@ const TechStack = () => {
           </span>
           <FontAwesomeIcon
             icon={faChevronDown}
-            className={`text-white group-hover:translate-y-1 transition-all duration-300 ease-in-out ${
+            className={`text-white group-hover:translate-y-1 custom-transition-all ${
               seeMore ? "rotate-180" : ""
             }`}
           />
-          <div className="absolute w-full bottom-0 -left-4 h-[2px] bg-[#5a189a] transition-all duration-300 ease-in-out -translate-x-full group-hover:translate-x-0"></div>
+          <div className="absolute w-full bottom-0 -left-4 h-[2px] bg-[#5a189a] custom-transition-all -translate-x-full group-hover:translate-x-0"></div>
         </button>
       )}
     </div>
