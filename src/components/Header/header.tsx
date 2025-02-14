@@ -106,7 +106,7 @@ const Header = () => {
                 duration={1000}
                 offset={-110}
                 to={item.path}
-                className={`relative underline_hover font-semibold ${
+                className={`relative underline_hover font-semibold cursor-pointer ${
                   isSelected === item.name ? "gradient-text-nav active" : ""
                 }`}
                 onClick={() => {

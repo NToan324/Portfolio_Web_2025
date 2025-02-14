@@ -15,7 +15,7 @@ const AboutActionButton = () => {
     >
       <motion.button
         variants={FadeIn({ direction: "up" })}
-        className="flex !w-[185px] justify-center items-center gap-2 button-custom text-white bg-gradient-to-r from-[#9124ff] to-[#02c4ff]"
+        className="flex !w-[185px] justify-center items-center gap-2 button-custom text-white bg-gradient-to-r from-[#9124ff] to-[#02c4ff] cursor-pointer"
       >
         <FiFileText size={20} />
         <span>Download CV</span>
@@ -26,7 +26,7 @@ const AboutActionButton = () => {
           smooth={true}
           duration={500}
           offset={100}
-          className="flex justify-center items-center gap-2 button-custom border border-[#9124ff] text-purple hover:bg-hover"
+          className="flex justify-center items-center gap-2 button-custom border border-[#9124ff] text-purple hover:bg-hover cursor-pointer"
         >
           <MdCode size={20} />
           <span>View Project</span>

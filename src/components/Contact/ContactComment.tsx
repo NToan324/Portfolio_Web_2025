@@ -77,7 +77,7 @@ const ContactComment = () => {
           </label>
           <span className="text-gray-400">(Optional)</span>
         </div>
-        <div className="text-center bg-[#ffffff1a] p-5 rounded-2xl border border-gray-400 custom-transition-all">
+        <div className="text-center bg-[#ffffff1a] p-5 rounded-2xl border border-gray-400">
           {fileImage.length === 0 ? (
             <>
               <input
@@ -89,7 +89,7 @@ const ContactComment = () => {
               />
               <label
                 htmlFor="file"
-                className="group flex justify-center text-[#818cf8] items-center gap-2 w-full h-[60px] rounded-2xl border border-[#818cf8]/50 border-dashed bg-[#818cf8]/20 hover:border-[#818cf8] hover:bg-[#818cf8]/40"
+                className="group flex justify-center text-[#818cf8] items-center gap-2 w-full h-[60px] rounded-2xl border border-[#818cf8]/50 border-dashed bg-[#818cf8]/20 hover:border-[#818cf8] hover:bg-[#818cf8]/40 custom-transition-all cursor-pointer"
               >
                 <IoMdImages className="text-xl group-hover:scale-105 group-hover:rotate-3 custom-transition-all" />
                 <span>Choose Profile Photo</span>

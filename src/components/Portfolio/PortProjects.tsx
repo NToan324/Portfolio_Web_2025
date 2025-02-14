@@ -89,7 +89,7 @@ const Projects = () => {
                 </p>
               </div>
               <div className="flex justify-between items-center w-full">
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center cursor-pointer">
                   <span className="text-blue text-sm">Live Demo</span>
                   <FontAwesomeIcon
                     icon={faArrowUpRightFromSquare}
@@ -98,7 +98,7 @@ const Projects = () => {
                 </div>
                 <NavLink
                   to={`/project/${item.title}`}
-                  className="flex justify-between items-center !py-2 !px-4 !rounded-xl gap-2 !bg-[#ffffff0d] !normal-case"
+                  className="flex justify-center items-center py-2 px-4 w-24 rounded-xl gap-2 !bg-[#ffffff0d] hover:gap-3 custom-transition-all"
                 >
                   <span className="text-white text-sm">Details</span>
                   <FontAwesomeIcon
