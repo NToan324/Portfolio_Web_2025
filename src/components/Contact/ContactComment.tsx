@@ -3,19 +3,35 @@ import { IoMdImages } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import Avatar from "../../assets/avatar-comment.svg";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { FadeIn } from "../Motion/Variants";
 
 const ContactComment = () => {
   const [fileImage, setFileImage] = useState("");
 
   const handleFileImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //Review show image preview
     const file = e.target.files![0];
     setFileImage(file ? URL.createObjectURL(file) : "");
   };
 
   return (
-    <form action="" method="post" className="flex flex-col gap-5 mt-5">
-      <div className="space-y-2">
+    <motion.form
+      variants={FadeIn({
+        direction: "up",
+      })}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false }}
+      action=""
+      method="post"
+      className="flex flex-col gap-5 mt-5"
+    >
+      <motion.div
+        variants={FadeIn({
+          direction: "up",
+        })}
+        className="space-y-2"
+      >
         <div className="space-x-1">
           <label htmlFor="name" className="text-white">
             Name
@@ -26,10 +42,16 @@ const ContactComment = () => {
           type="text"
           placeholder="Enter your name"
           required
-          className="w-full h-[60px] px-6 pr-6 rounded-2xl border outline-none border-gray-400 bg-[#ffffff1a] hover:border-[#4338ca] text-white focus:ring-2 focus:ring-[#685bff]/50 custom-transition-all"
+          className="w-full h-[60px] px-6 pr-6 rounded-2xl border outline-none border-gray-400 bg-[#ffffff1a] hover:border-[#4338ca] text-white focus:ring-2 custom-transition-all focus:ring-[#685bff]/50"
         />
-      </div>
-      <div className="space-y-2">
+      </motion.div>
+      <motion.div
+        variants={FadeIn({
+          direction: "up",
+          delay: 0.2,
+        })}
+        className="space-y-2"
+      >
         <div className="space-x-1">
           <label htmlFor="name" className="text-white">
             Message
@@ -39,17 +61,23 @@ const ContactComment = () => {
         <textarea
           placeholder="Write your message here..."
           required
-          className="w-full h-[200px] px-6 py-4 rounded-2xl border outline-none border-gray-400 bg-[#ffffff1a] hover:border-[#4338ca] text-white focus:ring-2 focus:ring-[#685bff]/50 custom-transition-all resize-none"
+          className="w-full h-[200px] px-6 py-4 rounded-2xl border outline-none border-gray-400 bg-[#ffffff1a] hover:border-[#4338ca] text-white focus:ring-2 custom-transition-all focus:ring-[#685bff]/50 resize-none"
         />
-      </div>
-      <div className="space-y-2 ">
+      </motion.div>
+      <motion.div
+        variants={FadeIn({
+          direction: "up",
+          delay: 0.4,
+        })}
+        className="space-y-2 "
+      >
         <div className="space-x-1">
           <label htmlFor="name" className="text-white">
             Profile Photo
           </label>
           <span className="text-gray-400">(Optional)</span>
         </div>
-        <div className="text-center bg-[#ffffff1a] p-5 rounded-2xl border border-gray-400">
+        <div className="text-center bg-[#ffffff1a] p-5 rounded-2xl border border-gray-400 custom-transition-all">
           {fileImage.length === 0 ? (
             <>
               <input
@@ -61,7 +89,7 @@ const ContactComment = () => {
               />
               <label
                 htmlFor="file"
-                className="group flex justify-center text-[#818cf8] items-center gap-2 w-full h-[60px] rounded-2xl border border-[#818cf8]/50 border-dashed bg-[#818cf8]/20 hover:border-[#818cf8] hover:bg-[#818cf8]/40 custom-transition-all"
+                className="group flex justify-center text-[#818cf8] items-center gap-2 w-full h-[60px] rounded-2xl border border-[#818cf8]/50 border-dashed bg-[#818cf8]/20 hover:border-[#818cf8] hover:bg-[#818cf8]/40"
               >
                 <IoMdImages className="text-xl group-hover:scale-105 group-hover:rotate-3 custom-transition-all" />
                 <span>Choose Profile Photo</span>
@@ -85,17 +113,29 @@ const ContactComment = () => {
             </div>
           )}
         </div>
-      </div>
-      <button
-        type="submit"
-        className="w-full h-[60px] bg-gradient-to-r from-[#9124ff] to-[#02c4ff] rounded-2xl flex justify-center items-center gap-2 hover:shadow-[0_0_15px_5px_rgba(93,21,227,0.3)] custom-transition-all"
+      </motion.div>
+      <motion.div
+        variants={FadeIn({
+          direction: "up",
+          delay: 0.6,
+        })}
+        className=""
       >
-        <BsSend className="text-2xl text-white" />
-        <span className="text-white font-semibold">Post Comment</span>
-      </button>
+        <button
+          type="submit"
+          className="w-full h-[60px] bg-gradient-to-r from-[#9124ff] to-[#02c4ff] rounded-2xl flex justify-center items-center gap-2 hover:shadow-[0_0_15px_5px_rgba(93,21,227,0.3)] custom-transition-all"
+        >
+          <BsSend className="text-2xl text-white" />
+          <span className="text-white font-semibold">Post Comment</span>
+        </button>
+      </motion.div>
       <div className="space-y-4 max-h-[275px] overflow-y-auto">
         {[...Array(4)].map((_, index) => (
-          <div
+          <motion.div
+            variants={FadeIn({
+              direction: "up",
+              delay: 0.8 + index * 0.2,
+            })}
             className="flex justify-start items-center gap-4 bg-[#ffffff1a] p-4 rounded-2xl"
             key={index}
           >
@@ -109,10 +149,10 @@ const ContactComment = () => {
               </div>
               <p className="text-sm text-gray-200">Nice</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </form>
+    </motion.form>
   );
 };
 

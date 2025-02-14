@@ -4,6 +4,8 @@ import Certificate from "../../assets/certificate.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
+import { FadeIn } from "../Motion/Variants";
 
 const Certificates = () => {
   const [open, setOpen] = useState(false);
@@ -22,8 +24,19 @@ const Certificates = () => {
   return (
     <div className="">
       <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
-        {[...Array(10).slice(0, visibleCount)].map((_, i) => (
-          <div className="group relative overflow-hidden" key={i}>
+        {[...Array(10).slice(0, visibleCount)].map((_, index) => (
+          <motion.div
+            variants={FadeIn({
+              direction: `${
+                index % 3 === 0 ? "right" : index % 3 === 1 ? "up" : "left"
+              }`,
+            })}
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{ once: false }}
+            className="group relative overflow-hidden"
+            key={index}
+          >
             <Modal open={open} setOpen={setOpen} />
             <img
               src={Certificate}
@@ -38,7 +51,7 @@ const Certificates = () => {
               />
               <span>View Certificate</span>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
       <button

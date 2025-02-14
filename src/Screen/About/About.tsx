@@ -1,11 +1,6 @@
 import { About } from "../../components/About";
-import { Element } from "react-scroll";
 const AboutView = () => {
-  return (
-    <Element name="about">
-      <About />
-    </Element>
-  );
+  return <About />;
 };
 
 export default AboutView;

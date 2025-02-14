@@ -1,7 +1,16 @@
 import Avatar from "../../assets/avatar.svg";
+import { motion } from "framer-motion";
+import { FadeIn } from "../Motion/Variants";
+
 const AboutAvatar = () => {
   return (
-    <section className="relative w-full md:w-1/2 flex justify-center items-center">
+    <motion.section
+      variants={FadeIn({ direction: "up" })}
+      initial="hidden"
+      whileInView={"visible"}
+      viewport={{ once: false }}
+      className="relative w-full md:w-1/2 flex justify-center items-center"
+    >
       <div className="relative group border overflow-hidden border-gray-200 rounded-full w-[300px] h-[300px] flex justify-center items-center shadow-[0_0_60px_10px_rgba(93,21,227,0.4)] custom-transition-all duration-500 ease-in-out hover:border-transparent">
         <img
           src={Avatar}
@@ -12,7 +21,7 @@ const AboutAvatar = () => {
         <div className="absolute w-full h-full bg-white opacity-30 top-0 -translate-x-full group-hover:translate-x-full custom-transition-all duration-700 ease-out"></div>
         <div className="absolute w-full h-full bg-white opacity-30 top-0 -translate-y-full group-hover:translate-y-full custom-transition-all duration-700 ease-out"></div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

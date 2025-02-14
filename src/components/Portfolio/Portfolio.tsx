@@ -5,6 +5,8 @@ import { faBoxesStacked } from "@fortawesome/free-solid-svg-icons";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { PortProjects, PortCertificates, PortTechStack } from "./index";
+import { motion } from "framer-motion";
+import { FadeIn } from "../Motion/Variants";
 
 const PortfolioShowCase = () => {
   const content = [
@@ -25,8 +27,17 @@ const PortfolioShowCase = () => {
   const [seleted, setSelected] = useState(content[0].title);
 
   return (
-    <div className="mt-14 md:mt-32 px-8 md:px-[100px]" id="portfolio">
-      <div className="flex flex-col justify-center items-center">
+    <motion.div
+      variants={FadeIn({
+        direction: "up",
+      })}
+      initial="hidden"
+      whileInView={"visible"}
+      viewport={{ once: false }}
+      className="mt-14 md:mt-32 px-8 md:px-[100px]"
+      id="portfolio"
+    >
+      <motion.div className="flex flex-col justify-center items-center">
         <h1 className="text-titleText font-bold gradient-text text-center">
           Portfolio Showcase
         </h1>
@@ -37,8 +48,14 @@ const PortfolioShowCase = () => {
             learning path.
           </p>
         </div>
-      </div>
-      <div className="relative overflow-hidden grid grid-cols-3 gap-5 mt-10 rounded-2xl p-4">
+      </motion.div>
+      <motion.div
+        variants={FadeIn({
+          direction: "up",
+          delay: 0.25,
+        })}
+        className="relative overflow-hidden grid grid-cols-3 gap-5 mt-10 rounded-2xl p-4"
+      >
         <div className="absolute background-gradient w-full h-full opacity-10"></div>
         {content.map((item, index) => (
           <Button
@@ -68,11 +85,11 @@ const PortfolioShowCase = () => {
             ></div>
           </Button>
         ))}
-      </div>
+      </motion.div>
       {seleted === "Projects" && <PortProjects />}
       {seleted === "Certificates" && <PortCertificates />}
       {seleted === "Tech Stack" && <PortTechStack />}
-    </div>
+    </motion.div>
   );
 };
 

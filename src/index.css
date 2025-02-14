@@ -8,10 +8,10 @@ body {
   margin: 0;
   padding: 0;
   scrollbar-color: #715c9f #130a26;
+  background-color: #130a26;
 }
 body {
   overflow-x: hidden;
-  overflow-y: auto;
 }
 .button-custom {
   border-radius: 10px;

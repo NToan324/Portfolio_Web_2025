@@ -108,7 +108,7 @@ const Introduce = () => {
     },
   ];
   return (
-    <div className="wrapper w-full h-screen flex justify-center items-center">
+    <div className="wrapper transition_bg  w-full h-screen flex justify-center items-center">
       <div className=" flex flex-col justify-center items-center gap-10">
         <div className="flex justify-center items-center gap-5">
           {iconImage.map((icon, index) => (

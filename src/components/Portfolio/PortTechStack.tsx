@@ -17,6 +17,8 @@ import Figma from "../../assets/TechStack/figma-svgrepo-com.svg";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { FadeIn } from "../Motion/Variants";
 
 const TechStack = () => {
   const techStack = [
@@ -100,8 +102,16 @@ const TechStack = () => {
     <div className="">
       <div className="mt-10 grid grid-cols-2 gap-5 justify-items-center content-center lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3">
         {techStack.slice(0, visibleCount).map((item, index) => (
-          <div
-            className="relative overflow-hidden group rounded-2xl w-[140px] h-[140px] bg-[#1e293b80] flex flex-col justify-center items-center gap-2 p-4 hover:bg-[#3e485a75] hover:scale-105 custom-transition-all duration-500 ease-in-out"
+          <motion.div
+            variants={FadeIn({
+              direction: `${
+                index % 3 === 0 ? "right" : index % 3 === 1 ? "up" : "left"
+              }`,
+            })}
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{ once: false }}
+            className="relative overflow-hidden group rounded-2xl w-[140px] h-[140px] bg-[#1e293b80] flex flex-col justify-center items-center gap-2 p-4 hover:bg-[#3e485a75] hover:scale-105"
             key={index}
           >
             <img
@@ -112,8 +122,8 @@ const TechStack = () => {
             <span className="text-gray-400 group-hover:text-white custom-transition-all duration-500 ease-in-out">
               {item.title}
             </span>
-            <div className="z-0 absolute w-[80px] h-[80px] blur-xl bg-gradient-to-r from-[#9124ff] to-[#02c4ff] opacity-0 rounded-full group-hover:opacity-70 custom-transition-all duration-500 ease-in-out"></div>
-          </div>
+            <div className="z-0 absolute w-[80px] h-[80px] blur-xl bg-gradient-to-r from-[#9124ff] to-[#02c4ff] opacity-0 rounded-full group-hover:opacity-70 custom-transition-all"></div>
+          </motion.div>
         ))}
       </div>
       {techStack.length > 12 && (

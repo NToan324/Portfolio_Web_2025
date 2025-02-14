@@ -1,7 +1,8 @@
 import DeveloperIcon from "../../assets/developer.svg";
 import GithubIcon from "../../assets/github.svg";
 import UserIcon from "../../assets/user.svg";
-
+import { motion } from "framer-motion";
+import { FadeIn } from "../Motion/Variants";
 const HomeSocial = () => {
   const Link = [
     {
@@ -18,7 +19,10 @@ const HomeSocial = () => {
     },
   ];
   return (
-    <div className="justify-start items-center gap-7 flex-wrap md:flex hidden">
+    <motion.div
+      variants={FadeIn({ direction: "right" })}
+      className="justify-start items-center gap-7 flex-wrap md:flex hidden"
+    >
       {Link.map((item, index) => (
         <a href={item.href} target="_blank" rel="noreferrer" key={index}>
           <img
@@ -33,7 +37,7 @@ const HomeSocial = () => {
           />
         </a>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

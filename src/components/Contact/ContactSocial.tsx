@@ -4,20 +4,39 @@ import Github from "../../assets/Contact/github-svgrepo-com (1).svg";
 import Instagram from "../../assets/Contact/instagram-svgrepo-com.svg";
 import Tiktok from "../../assets/Contact/tiktok-svgrepo-com.svg";
 import { HiOutlineExternalLink } from "react-icons/hi";
+import { motion } from "framer-motion";
+import { FadeIn } from "../Motion/Variants";
 
 const ContactSocial = () => {
   return (
     <div className="border-t-[0.5px] border-[#ffffff1a] mt-10">
-      <div className="mt-10 p-5 rounded-2xl bg-[#ffffff1a]">
-        <div className="flex justify-start items-center gap-5">
+      <motion.div
+        variants={FadeIn({
+          direction: "up",
+        })}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+        className="mt-10 p-5 rounded-2xl bg-[#ffffff1a]"
+      >
+        <motion.div
+          variants={FadeIn({
+            direction: "up",
+          })}
+          className="flex justify-start items-center gap-5"
+        >
           <PiPhoneCall className="text-white text-2xl" />
           <h1 className="text-xl text-white font-bold">Connect with me</h1>
-        </div>
+        </motion.div>
         <div className="flex flex-col gap-5 mt-5">
-          <a
+          <motion.a
+            variants={FadeIn({
+              direction: "up",
+              delay: 0.2,
+            })}
             href="https://www.facebook.com/NToan324/"
             target="_blank"
-            className="group overflow-hidden relative w-full flex gap-4 justify-start items-center p-4 border border-gray-400 rounded-2xl bg-[#ffffff1a] hover:bg-gradient-to-r hover:from-[#006eff]/20 hover:to-[#02c4ff]/20 custom-transition-all"
+            className="group overflow-hidden relative w-full flex gap-4 justify-start items-center p-4 border border-gray-400 rounded-2xl bg-[#ffffff1a] hover:bg-gradient-to-r hover:from-[#006eff]/20 hover:to-[#02c4ff]/20 "
           >
             <img
               src={Facebook}
@@ -34,12 +53,16 @@ const ContactSocial = () => {
             </div>
             <HiOutlineExternalLink className="absolute right-5 opacity-0 text-xl text-white group-hover:right-4 group-hover:opacity-100 custom-transition-all" />
             <div className="absolute w-[50px] h-[100px] bg-white rotate-12 blur-2xl opacity-0 group-hover:translate-x-[500px] group-hover:opacity-70 custom-transition-all duration-500 ease-in-out"></div>
-          </a>
+          </motion.a>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <a
+            <motion.a
+              variants={FadeIn({
+                direction: "up",
+                delay: 0.4,
+              })}
               href="https://www.facebook.com/NToan324/"
               target="_blank"
-              className="group overflow-hidden relative w-full flex gap-4 justify-start items-center p-4 border border-gray-400 rounded-2xl bg-[#ffffff1a] hover:bg-gradient-to-r hover:from-[#ff3d67]/20 hover:to-[#6dfff8]/20 custom-transition-all"
+              className="group overflow-hidden relative w-full flex gap-4 justify-start items-center p-4 border border-gray-400 rounded-2xl bg-[#ffffff1a] hover:bg-gradient-to-r hover:from-[#ff3d67]/20 hover:to-[#6dfff8]/20 "
             >
               <img
                 src={Tiktok}
@@ -56,11 +79,15 @@ const ContactSocial = () => {
               </div>
               <HiOutlineExternalLink className="absolute right-5 opacity-0 text-xl text-white group-hover:right-4 group-hover:opacity-100 custom-transition-all" />
               <div className="absolute w-[50px] h-[100px] bg-white rotate-12 blur-2xl opacity-0 group-hover:translate-x-[500px] group-hover:opacity-70 custom-transition-all duration-500 ease-in-out"></div>
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              variants={FadeIn({
+                direction: "up",
+                delay: 0.4,
+              })}
               href="https://www.facebook.com/NToan324/"
               target="_blank"
-              className="group overflow-hidden relative w-full flex gap-4 justify-start items-center p-4 border border-gray-400 rounded-2xl bg-[#ffffff1a] hover:bg-gradient-to-r hover:from-[#ff1f8f]/20 hover:to-[#ff6cb6]/20 custom-transition-all"
+              className="group overflow-hidden relative w-full flex gap-4 justify-start items-center p-4 border border-gray-400 rounded-2xl bg-[#ffffff1a] hover:bg-gradient-to-r hover:from-[#ff1f8f]/20 hover:to-[#ff6cb6]/20"
             >
               <img
                 src={Instagram}
@@ -77,11 +104,15 @@ const ContactSocial = () => {
               </div>
               <HiOutlineExternalLink className="absolute right-5 opacity-0 text-xl text-white group-hover:right-4 group-hover:opacity-100 custom-transition-all" />
               <div className="absolute w-[50px] h-[100px] bg-white rotate-12 blur-2xl opacity-0 group-hover:translate-x-[500px] group-hover:opacity-70 custom-transition-all duration-500 ease-in-out"></div>
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              variants={FadeIn({
+                direction: "up",
+                delay: 0.6,
+              })}
               href="https://www.facebook.com/NToan324/"
               target="_blank"
-              className="group overflow-hidden relative w-full flex gap-4 justify-start items-center p-4 border border-gray-400 rounded-2xl bg-[#ffffff1a] hover:bg-gradient-to-r hover:from-[#000000]/20 hover:to-[#5d5d5d]/20 custom-transition-all"
+              className="group overflow-hidden relative w-full flex gap-4 justify-start items-center p-4 border border-gray-400 rounded-2xl bg-[#ffffff1a] hover:bg-gradient-to-r hover:from-[#000000]/20 hover:to-[#5d5d5d]/20 "
             >
               <img
                 src={Github}
@@ -98,11 +129,15 @@ const ContactSocial = () => {
               </div>
               <HiOutlineExternalLink className="absolute right-5 opacity-0 text-xl text-white group-hover:right-4 group-hover:opacity-100 custom-transition-all" />
               <div className="absolute w-[50px] h-[100px] bg-white rotate-12 blur-2xl opacity-0 group-hover:translate-x-[500px] group-hover:opacity-70 custom-transition-all duration-500 ease-in-out"></div>
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              variants={FadeIn({
+                direction: "up",
+                delay: 0.6,
+              })}
               href="https://www.facebook.com/NToan324/"
               target="_blank"
-              className="group overflow-hidden relative w-full flex gap-4 justify-start items-center p-4 border border-gray-400 rounded-2xl bg-[#ffffff1a] hover:bg-gradient-to-r hover:from-[#006eff]/20 hover:to-[#02c4ff]/20 custom-transition-all"
+              className="group overflow-hidden relative w-full flex gap-4 justify-start items-center p-4 border border-gray-400 rounded-2xl bg-[#ffffff1a] hover:bg-gradient-to-r hover:from-[#006eff]/20 hover:to-[#02c4ff]/20 "
             >
               <img
                 src={Facebook}
@@ -119,10 +154,10 @@ const ContactSocial = () => {
               </div>
               <HiOutlineExternalLink className="absolute right-5 opacity-0 text-xl text-white group-hover:right-4 group-hover:opacity-100 custom-transition-all" />
               <div className="absolute w-[50px] h-[100px] bg-white rotate-12 blur-2xl opacity-0 group-hover:translate-x-[500px] group-hover:opacity-70 custom-transition-all duration-500 ease-in-out"></div>
-            </a>
+            </motion.a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
